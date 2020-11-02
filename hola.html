@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Primer ejemplo firebase</title>
+    </head>
+    <body>
+        <h1 id ="holaMundo"></h1>
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBkXsDc7pZ1LA01FcmcHQjsoGJHX5rg1E0",
+    authDomain: "noprocrastines-dfeb9.firebaseapp.com",
+    databaseURL: "https://noprocrastines-dfeb9.firebaseio.com",
+    projectId: "noprocrastines-dfeb9",
+    storageBucket: "noprocrastines-dfeb9.appspot.com",
+    messagingSenderId: "64248845143",
+    appId: "1:64248845143:web:6239496098e3ff63d1a412"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  
+  var holaMundo = document.getElementById("holaMundo");
+  var dbRef = firebase.database().ref().child("text");
+  dbRef.on("value", snap => holaMundo.innerText = snap.val() );
+  
+  </script>     
+    </body>
+</html>
